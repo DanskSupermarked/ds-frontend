@@ -5,7 +5,7 @@
 // Dependencies
 var $ = require('jquery');
 var _ = require('lodash');
-var load = require('./utils/load-assets');
+var load = require('./load-assets');
 
 // Variables
 var deferred = $.Deferred();
