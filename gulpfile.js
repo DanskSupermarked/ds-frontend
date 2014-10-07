@@ -100,6 +100,10 @@ gulp.task('enforce-coverage-and-finish', function() {
 
 gulp.task('tests-with-coverage-threshold', ['test-and-coverage'], function() {
     gulp.start('enforce-coverage-and-finish');
+    if (process.env.NODE_ENV === 'build') {
+        return gulp.src('coverage/**/lcov.info')
+            .pipe($.coveralls());
+    }
 });
 
 gulp.task('test', ['lint', 'prepare-coverage'], function() {
