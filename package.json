@@ -4,7 +4,7 @@
     "description": "Dansk Supermarked reusable frontend components",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "gulp test"
     },
     "repository": {
         "type": "git",
@@ -15,5 +15,25 @@
     "bugs": {
         "url": "https://github.com/DanskSupermarked/ds-frontend/issues"
     },
-    "homepage": "https://github.com/DanskSupermarked/ds-frontend"
+    "homepage": "https://github.com/DanskSupermarked/ds-frontend",
+    "devDependencies": {
+        "chai": "^1.9.2",
+        "connect": "^3.2.0",
+        "gulp": "^3.8.8",
+        "gulp-istanbul": "^0.3.1",
+        "gulp-istanbul-enforcer": "^1.0.3",
+        "gulp-jscs": "^1.1.2",
+        "gulp-jshint": "^1.8.5",
+        "gulp-load-plugins": "^0.7.0",
+        "gulp-mocha": "^1.1.1",
+        "gulp-util": "^3.0.1",
+        "jshint-stylish": "^1.0.0",
+        "map-stream": "^0.1.0",
+        "mocha": "^1.21.4",
+        "mockery": "^1.4.0",
+        "opn": "^1.0.0",
+        "serve-static": "^1.6.3",
+        "sinon": "^1.10.3",
+        "sinon-chai": "^2.6.0"
+    }
 }
