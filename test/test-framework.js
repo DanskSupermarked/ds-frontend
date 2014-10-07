@@ -2,8 +2,10 @@ var expect = require('chai').expect;
 
 describe('Test framework', function() {
 
+    var testFramework = require('../scripts/_test-framework');
+
     it('should always work', function() {
-        expect(true).to.be.true;
+        expect(testFramework).to.be.true;
     });
 
 });

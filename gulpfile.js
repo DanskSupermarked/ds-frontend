@@ -10,6 +10,7 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var map = require('map-stream');
+var runSequence = require('run-sequence');
 
 var exitCode = 0;
 var totalLintErrors = 0;
@@ -57,8 +58,6 @@ gulp.task('jscs', function() {
         }));
 });
 
-gulp.task('lint', ['jshint', 'jscs']);
-
 gulp.task('prepare-coverage', function() {
     return gulp.src([
             'scripts/**/*.js',
@@ -78,7 +77,7 @@ gulp.task('test-and-coverage', function() {
         .pipe($.istanbul.writeReports()); // Creating coverage report
 });
 
-gulp.task('enforce-coverage-and-finish', function() {
+gulp.task('enforce-coverage', function() {
     var options = {
         thresholds: {
             statements: 90,
@@ -98,31 +97,41 @@ gulp.task('enforce-coverage-and-finish', function() {
         });
 });
 
-gulp.task('tests-with-coverage-threshold', ['test-and-coverage'], function() {
-    gulp.start('enforce-coverage-and-finish');
-    if (process.env.NODE_ENV === 'build') {
-        return gulp.src('coverage/**/lcov.info')
-            .pipe($.coveralls());
+gulp.task('coveralls', function() {
+    if (process.env.NODE_ENV !== 'build') {
+        return $.util.log('Not on build server: No push to coveralls.io');
     }
+    return gulp.src('coverage/**/lcov.info')
+        .pipe($.coveralls());
 });
 
-gulp.task('test', ['lint', 'prepare-coverage'], function() {
-    gulp.start('tests-with-coverage-threshold');
+/**
+ * Tests
+ */
+
+gulp.task('test', function(done) {
+    runSequence(
+        ['jshint', 'jscs', 'prepare-coverage'],
+        'test-and-coverage',
+        'coveralls',
+        'enforce-coverage',
+        done);
 });
 
 /**
  * Coverage report
  */
 
-gulp.task('test-with-coverage', ['prepare-coverage'], function() {
-    gulp.start('test-and-coverage');
-});
-
-gulp.task('coverage', ['test-with-coverage'], function() {
-    var connect = require('connect');
-    var serveStatic = require('serve-static');
-    connect()
-        .use(serveStatic('coverage/lcov-report'))
-        .listen(9003);
-    require('opn')('http://localhost:9003');
+gulp.task('coverage', function() {
+    runSequence(
+        'prepare-coverage',
+        'test-and-coverage',
+        function() {
+            var connect = require('connect');
+            var serveStatic = require('serve-static');
+            connect()
+                .use(serveStatic('coverage/lcov-report'))
+                .listen(9003);
+            require('opn')('http://localhost:9003');
+        });
 });
