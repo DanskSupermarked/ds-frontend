@@ -4,23 +4,40 @@
 
 // Dependencies
 var $ = require('jquery');
+var load = require('./load-assets');
+
+var GEO_IP_CALLBACK = 'geo-ip-callback';
+var GEO_IP_URL = '//freegeoip.net/json/';
+
+// Get geoposition from geoip register
+var geoPosPolyfill = function(success) {
+    window[GEO_IP_CALLBACK] = success;
+    load.js(GEO_IP_URL + '?callback=' + GEO_IP_CALLBACK);
+};
 
 /**
  * Get client geo position if browser supports it
+ * @param         {number}        cachedTime        MS to cache geoposito result. Defaults to 60000 (10 mins)
  * @return        {promise}
  */
 module.exports.clientLocation = function(cachedTime) {
     var deferred = $.Deferred();
 
     if (!navigator || !navigator.geolocation) {
-        deferred.reject();
+        geoPosPolyfill(deferred.resolve);
+        // Reject if no response within 5 secs
+        window.setTimeout(function() {
+            if (deferred.state() === 'pending') {
+                deferred.reject();
+            }
+        }, 5000);
     } else {
         navigator.geolocation.getCurrentPosition(function(position) {
             deferred.resolve(position.coords);
         }, function() {
             deferred.reject();
         }, {
-            maximumAge: cachedTime || 1000 * 60 * 10
+            maximumAge: cachedTime || 1000 * 60 * 10 // Default cache set to 10 minutes
         });
     }
 

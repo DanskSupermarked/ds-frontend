@@ -1,6 +1,12 @@
+/**
+ * Lazy load images with class 'lazy'.
+ */
+
+// Dependencies
 var $ = require('jquery');
 
-// Percent under bottom of screen images is loaded
+// Percent under bottom of screen images is loaded. A value of 0 will load
+// images when they are within visible area of window.
 var OFFSET_PERCENT = 1;
 
 var queued = false;
@@ -55,6 +61,10 @@ $window.on('scroll', checkForLazyImages);
 $window.on('resize', checkForLazyImages);
 $(checkForLazyImages);
 
+/**
+ * Refresh list of lazy loaded images. Used if images are placed in dom async with ajax.
+ * @return        {void}
+ */
 module.exports.refresh = function() {
     $lazyImages = $('img.lazy');
     checkForLazyImages();

@@ -3,6 +3,11 @@
  * Taken from the filamentgroup.
  */
 
+/**
+ * Load javascript async
+ * @param         {string}        src        Url to javascript
+ * @return        {element}
+ */
 module.exports.js = function(src) {
     var ref = window.document.getElementsByTagName('script')[0];
     var script = window.document.createElement('script');
@@ -11,6 +16,11 @@ module.exports.js = function(src) {
     return script;
 };
 
+/**
+ * Load css async
+ * @param         {string}        href        Url to css
+ * @return        {element}
+ */
 module.exports.css = function(href) {
     var styleSheet = window.document.createElement('link');
     var ref = window.document.getElementsByTagName('script')[0];
