@@ -135,3 +135,18 @@ gulp.task('coverage', function() {
             require('opn')('http://localhost:9003');
         });
 });
+
+/**
+ * Watch
+ */
+
+gulp.task('watch-test', function(done) {
+    runSequence(
+        ['jshint', 'jscs', 'prepare-coverage'],
+        'test-and-coverage',
+        done);
+});
+
+gulp.task('watch', ['watch-test'], function() {
+    gulp.watch(['scripts/**/*.js', 'test/**/*.js'], ['watch-test']);
+});

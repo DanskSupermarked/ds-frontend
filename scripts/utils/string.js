@@ -21,7 +21,7 @@ module.exports = function(source) {
          * Strips html tags
          * @return        {string}
          */
-        stipTags: function() {
+        stripTags: function() {
             return source.replace(/(<([^>]+)>)/ig, '');
         }
     };
