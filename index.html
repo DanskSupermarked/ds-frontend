@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mocha Spec Runner</title>
+    <link rel="stylesheet" href="node_modules/mocha/mocha.css">
+</head>
+<body>
+    <div id="mocha"></div>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/lodash/dist/lodash.js"></script>
+    <script src="node_modules/mocha/mocha.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <script src="node_modules/chai/chai.js"></script>
+    <script>
+        var assert = chai.assert;
+        var expect = chai.expect;
+        var should = chai.should();
+    </script>
+
+    <!-- include source files here... -->
+    <script src="index.js"></script>
+    <script src="scripts/test-framework.js"></script>
+    <script src="scripts/utils/string.js"></script>
+    <script src="scripts/utils/validation.js"></script>
+
+    <!-- include spec files here... -->
+    <script src="test/test-framework.js"></script>
+    <script src="test/version.js"></script>
+    <script src="test/utils/string.js"></script>
+    <script src="test/utils/validation.js"></script>
+
+    <script>
+      if (window.mochaPhantomJS) {
+        mochaPhantomJS.run();
+      } else {
+        mocha.run();
+      }
+    </script>
+</body>
+</html>

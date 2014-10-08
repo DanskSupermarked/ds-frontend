@@ -2,15 +2,12 @@
  * Commands:
  *
  * gulp test: Lint and test code
- * gulp coverage: Generate and show a coverage report
+ * gulp serve: Test code and livereload
  */
-
-'use strict';
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var map = require('map-stream');
-var runSequence = require('run-sequence');
 
 var exitCode = 0;
 var totalLintErrors = 0;
@@ -58,95 +55,29 @@ gulp.task('jscs', function() {
         }));
 });
 
-gulp.task('prepare-coverage', function() {
-    return gulp.src([
-            'scripts/**/*.js',
-        ])
-        .pipe($.istanbul()); // Covering files
-});
-
-gulp.task('test-and-coverage', function() {
-
-    return gulp.src('test/**/*.js', {
-            read: false
-        })
-        .pipe($.mocha({
-            bin: './node_modules/mocha/bin/mocha',
+gulp.task('test', ['jshint', 'jscs'], function() {
+    return gulp.src('index.html')
+        .pipe($.mochaPhantomjs({
             reporter: 'spec'
-        }))
-        .pipe($.istanbul.writeReports()); // Creating coverage report
+        }));
 });
 
-gulp.task('enforce-coverage', function() {
-    var options = {
-        thresholds: {
-            statements: 90,
-            branches: 90,
-            lines: 90,
-            functions: 90
-        },
-        coverageDirectory: 'coverage',
-        rootDirectory: ''
-    };
-    return gulp
-        .src('.')
-        .pipe($.istanbulEnforcer(options))
-        .on('error', function(err) {
-            $.util.log(err.message);
-            process.exit(1);
-        });
+gulp.task('serve', function(done) {
+    $.livereload.listen();
+    gulp.watch([
+        'scripts/**/*.js',
+        'test/**/*.js',
+        'index.html'
+    ])
+        .on('change', $.livereload.changed);
+
+    var connect = require('connect');
+    var serveStatic = require('serve-static');
+    connect()
+        .use(serveStatic('./'))
+        .listen(9003, done);
+    require('opn')('http://localhost:9003');
 });
 
-gulp.task('coveralls', function() {
-    if (process.env.NODE_ENV !== 'build') {
-        return $.util.log('Not on build server: No push to coveralls.io');
-    }
-    return gulp.src('coverage/**/lcov.info')
-        .pipe($.coveralls());
-});
-
-/**
- * Tests
- */
-
-gulp.task('test', function(done) {
-    runSequence(
-        ['jshint', 'jscs', 'prepare-coverage'],
-        'test-and-coverage',
-        'coveralls',
-        'enforce-coverage',
-        done);
-});
-
-/**
- * Coverage report
- */
-
-gulp.task('coverage', function() {
-    runSequence(
-        'prepare-coverage',
-        'test-and-coverage',
-        function() {
-            var connect = require('connect');
-            var serveStatic = require('serve-static');
-            connect()
-                .use(serveStatic('coverage/lcov-report'))
-                .listen(9003);
-            require('opn')('http://localhost:9003');
-        });
-});
-
-/**
- * Watch
- */
-
-gulp.task('watch-test', function(done) {
-    runSequence(
-        ['jshint', 'jscs', 'prepare-coverage'],
-        'test-and-coverage',
-        done);
-});
-
-gulp.task('watch', ['watch-test'], function() {
-    gulp.watch(['scripts/**/*.js', 'test/**/*.js'], ['watch-test']);
-});
+gulp.task('watch', ['serve']);
+gulp.task('default', ['serve']);

@@ -1,10 +1,8 @@
-var expect = require('chai').expect;
+describe('ds.testFramework', function() {
 
-describe('Test framework', function() {
+    var testFramework = window.ds.testFramework;
 
-    var testFramework = require('../scripts/_test-framework');
-
-    it('should always work', function() {
+    it('should always return true', function() {
         expect(testFramework).to.be.true;
     });
 

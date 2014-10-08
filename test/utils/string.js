@@ -1,15 +1,20 @@
-var expect = require('chai').expect;
+describe('ds.utils.string([string])', function() {
 
-describe('utils/string', function() {
+    var string = window.ds.utils.string;
 
-    var string = require('../../scripts/utils/string');
+    describe('.startsWith([string])', function() {
+        it('should be a success if string starts with', function() {
+            expect(string('this is a test').startsWith('this')).to.be.true;
+        });
 
-    describe('#startsWith', function() {
-        expect(string('this is a test').startsWith('this')).to.be.true;
-        expect(string('this is a test').startsWith('self')).to.be.false;
+        it('should be a failure if string does not start with', function() {
+            expect(string('this is a test').startsWith('self')).to.be.false;
+        });
     });
 
-    describe('#stripTags', function() {
-        expect(string('<body><a href="#" class="test">test</a></body>').stripTags()).to.equal('test');
+    describe('.stripTags()', function() {
+        it('should strip tags from a strig', function() {
+            expect(string('<body><a href="#" class="test">test</a></body>').stripTags()).to.equal('test');
+        });
     });
 });

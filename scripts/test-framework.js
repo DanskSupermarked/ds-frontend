@@ -2,12 +2,11 @@
     if (typeof exports === 'object') {
         module.exports = factory();
     } else {
-        root.ds = factory();
+        root.ds = root.ds || {};
+        root.ds.testFramework = factory();
     }
 }(this, function() {
-    var exports = {};
-
-    exports.VERSION = '0.1.1';
-
+    var exports = true;
+    // Your actual module
     return exports;
 }));

@@ -16,7 +16,8 @@
         "before",
         "beforeEach",
         "after",
-        "afterEach"
+        "afterEach",
+        "expect"
     ],
     "debug": false,
     "devel": false,
