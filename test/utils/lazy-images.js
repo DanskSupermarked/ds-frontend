@@ -26,7 +26,7 @@ describe('ds.utils.lazyImages', function() {
                 } else {
                     checkSrcSet();
                 }
-            }, 10);
+            }, 0);
         };
         checkSrcSet();
         ds.utils.lazyImages.refresh();
