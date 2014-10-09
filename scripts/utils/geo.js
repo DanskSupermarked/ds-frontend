@@ -15,12 +15,13 @@
     var exports = {};
 
     var GEO_IP_CALLBACK = 'geoIpCallback';
-    var GEO_IP_URL = '//freegeoip.net/json/';
+    var GEO_IP_URL = 'freegeoip.net/json/';
 
     // Get geoposition from geoip register
     var geoPosPolyfill = function(success) {
         root[GEO_IP_CALLBACK] = success;
-        loadAssets.js(GEO_IP_URL + '?callback=' + GEO_IP_CALLBACK);
+        var protocol = (document.location.protocol === 'https:' ? 'https://' : 'http://');
+        loadAssets.js(protocol + GEO_IP_URL + '?callback=' + GEO_IP_CALLBACK);
     };
 
     /**
