@@ -4,24 +4,22 @@
 
 (function(root, factory) {
     if (typeof exports === 'object') {
-        exports = factory(root, require('jquery'), require('./load-assets'));
+        exports = factory(root, require('jquery'));
     } else {
         root.ds = root.ds || {};
         root.ds.utils = root.ds.utils || {};
-        root.ds.utils.geo = factory(root, root.jQuery, root.ds.utils.loadAssets);
+        root.ds.utils.geo = factory(root, root.jQuery);
     }
-}(this, function(root, $, loadAssets) {
+}(this, function(root, $) {
 
     var exports = {};
 
-    var GEO_IP_CALLBACK = 'geoIpCallback';
     var GEO_IP_URL = 'freegeoip.net/json/';
 
     // Get geoposition from geoip register
-    var geoPosPolyfill = function(success) {
-        root[GEO_IP_CALLBACK] = success;
+    var geoPosPolyfill = function(done) {
         var protocol = (document.location.protocol === 'https:' ? 'https://' : 'http://');
-        loadAssets.js(protocol + GEO_IP_URL + '?callback=' + GEO_IP_CALLBACK);
+        $.getJSON(protocol + GEO_IP_URL, done);
     };
 
     /**

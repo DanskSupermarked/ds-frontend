@@ -18,6 +18,7 @@ describe('ds.utils.loadAssets', function() {
             var checkStyle = function() {
                 setTimeout(function() {
                     if ($asycCssLoadTester.css('margin-top') === '10px') {
+                        $asycCssLoadTester.remove();
                         done();
                     } else {
                         checkStyle();
