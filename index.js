@@ -1,13 +1,10 @@
 (function(root, factory) {
     if (typeof exports === 'object') {
-        module.exports = factory();
+        module.exports.VERSION = factory();
     } else {
-        root.ds = factory();
+        root.ds = root.ds || {};
+        root.ds.VERSION = factory();
     }
 }(this, function() {
-    var exports = {};
-
-    exports.VERSION = '0.1.1';
-
-    return exports;
+    return '0.1.1';
 }));

@@ -1,9 +1,8 @@
 describe('ds.VERSION', function() {
-
-    var version = window.ds.VERSION;
-
-    it('should give the latest version of the library', function() {
-        expect(version).to.equal('0.1.1');
+    it('should give the latest version of the library', function(done) {
+        window.$.getJSON('package.json', function(pkg) {
+            expect(ds.VERSION).to.equal(pkg.version);
+            done();
+        });
     });
-
 });
