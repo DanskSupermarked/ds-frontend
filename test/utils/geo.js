@@ -1,6 +1,8 @@
 describe('ds.utils.geo', function() {
 
     describe('.clientLocation()', function() {
+        this.timeout(20000);
+
         var mockCoordinates = {
             speed: null,
             heading: null,
