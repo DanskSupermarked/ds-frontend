@@ -4,17 +4,17 @@
 
 (function(root, factory) {
     if (typeof exports === 'object') {
-        exports = factory(require('jquery'), require('./load-assets'));
+        exports = factory(root, require('jquery'), require('./load-assets'));
     } else {
         root.ds = root.ds || {};
         root.ds.utils = root.ds.utils || {};
-        root.ds.utils.allowConsole = factory(root, root.jQuery, root.ds.utils.loadAssets);
+        root.ds.utils.geo = factory(root, root.jQuery, root.ds.utils.loadAssets);
     }
 }(this, function(root, $, loadAssets) {
 
     var exports = {};
 
-    var GEO_IP_CALLBACK = 'geo-ip-callback';
+    var GEO_IP_CALLBACK = 'geoIpCallback';
     var GEO_IP_URL = '//freegeoip.net/json/';
 
     // Get geoposition from geoip register
@@ -25,13 +25,14 @@
 
     /**
      * Get client geo position if browser supports it
+     * @param         {bool}          useFreeGeoIp      Use fregeoip.net instead of native geolocation
      * @param         {number}        cachedTime        MS to cache geoposito result. Defaults to 60000 (10 mins)
      * @return        {promise}
      */
-    exports.clientLocation = function(cachedTime) {
+    exports.clientLocation = function(useFreeGeoIp, cachedTime) {
         var deferred = $.Deferred();
 
-        if (!navigator || !navigator.geolocation) {
+        if (useFreeGeoIp || !navigator || !navigator.geolocation) {
             geoPosPolyfill(deferred.resolve);
             // Reject if no response within 5 secs
             setTimeout(function() {
@@ -80,7 +81,12 @@
      * @return        {float}
      */
     exports.kmToMiles = function(km, decimals) {
-        return (parseFloat(km) * 0.621371192).toFixed(decimals || 2);
+        if (typeof decimals === 'undefined') {
+            decimals = 2;
+        } else {
+            decimals = parseInt(decimals);
+        }
+        return (parseFloat(km) * 0.621371192).toFixed(decimals);
     };
 
     return exports;
