@@ -1,6 +1,6 @@
-describe('ds.utils.string([string])', function() {
+describe('ds.utils.string(source:{string})', function() {
 
-    describe('.startsWith([string])', function() {
+    describe('.startsWith(needle:{string})', function() {
         it('should be a success if string starts with', function() {
             expect(ds.utils.string('this is a test').startsWith('this')).to.be.true;
         });

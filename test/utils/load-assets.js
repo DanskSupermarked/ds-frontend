@@ -20,7 +20,7 @@ describe('ds.utils.loadAssets', function() {
         });
     });
 
-    describe('.css([string])', function() {
+    describe('.css(href:{string})', function() {
         var style;
         var $asycCssLoadTester;
 

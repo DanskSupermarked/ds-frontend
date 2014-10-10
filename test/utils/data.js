@@ -1,4 +1,4 @@
-describe('ds.utils.data([string])', function() {
+describe('ds.utils.data(cateogry:{string})', function() {
 
     var content = {
         key: 'content'
@@ -8,16 +8,13 @@ describe('ds.utils.data([string])', function() {
         ds.utils.data.refresh();
     });
 
-    describe('.get([string])', function() {
+    describe('.get(item:{string}, [returnUndefined:{boolean}])', function() {
         it('should return the content of an existing data', function() {
             expect(ds.utils.data('category').get('key')).to.equal(content.key);
         });
         it('should return an error string for non-existing data', function() {
             expect(ds.utils.data('category').get('missingkey')).to.equal('{category: missingkey}');
         });
-    });
-
-    describe('.get([string], true)', function() {
         it('should return undefined for non-existing data', function() {
             expect(ds.utils.data('category').get('missingkey', true)).to.be.undefined;
         });
