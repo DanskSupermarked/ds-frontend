@@ -44,7 +44,7 @@
     } else {
         root.ds = root.ds || {};
         root.ds.utils = root.ds.utils || {};
-        root.ds.utils.resposiveClasses = factory(root.jQuery, root._, root.EventEmitter);
+        root.ds.utils.responsiveClasses = factory(root.jQuery, root._, root.EventEmitter);
     }
 }(this, function($, _, EventEmitter) {
 
@@ -83,14 +83,14 @@
         exports.emit('media:changed');
     };
 
-    // Avoid constant calculations when resizing
+    // Avoid constant repaint when resizing
     var delayedSetMode = function() {
         if (delay) {
             window.clearTimeout(delay);
         }
         delay = window.setTimeout(function() {
             setMode();
-        }, 100);
+        }, 20);
     };
 
     // Init

@@ -1,6 +1,6 @@
 describe('ds.utils.loadAssets', function() {
 
-    describe('.js([string])', function() {
+    describe('.js(source:{string}, [callback:{function}])', function() {
         var script;
 
         after(function() {
@@ -9,8 +9,14 @@ describe('ds.utils.loadAssets', function() {
         });
 
         it('should load a javasript asyncronously', function(done) {
-            window.asyncLoadTester = done;
-            script = ds.utils.loadAssets.js('test/async-js-load-tester.js');
+            var called = false;
+            window.asyncLoadTester = function() {
+                called = true;
+            };
+            script = ds.utils.loadAssets.js('test/assets/ds.utils.load-assets.js.js', function() {
+                expect(called).to.be.true;
+                done();
+            });
         });
     });
 
@@ -29,17 +35,10 @@ describe('ds.utils.loadAssets', function() {
         });
 
         it('should load css asyncronously', function(done) {
-            style = ds.utils.loadAssets.css('test/async-css-load-tester.css');
-            var checkStyle = function() {
-                setTimeout(function() {
-                    if ($asycCssLoadTester.css('margin-top') === '10px') {
-                        done();
-                    } else {
-                        checkStyle();
-                    }
-                }, 0);
-            };
-            checkStyle();
+            ds.utils.loadAssets.css('test/assets/ds.utils.load-assets.css.css', function() {
+                expect($asycCssLoadTester.css('margin-top')).to.equal('10px');
+                done();
+            });
         });
     });
 
