@@ -7,8 +7,13 @@
 </head>
 <body>
     <div id="mocha"></div>
+
+    <!-- Dependencies -->
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/lodash/dist/lodash.js"></script>
+    <script src="node_modules/wolfy87-eventemitter/EventEmitter.js"></script>
+
+    <!-- Test framework -->
     <script src="node_modules/mocha/mocha.js"></script>
     <script>mocha.setup('bdd')</script>
     <script src="node_modules/chai/chai.js"></script>
@@ -16,7 +21,7 @@
         var expect = chai.expect;
     </script>
 
-    <!-- include source files here... -->
+    <!-- Source files -->
     <script src="index.js"></script>
     <script src="scripts/test-framework.js"></script>
     <script src="scripts/utils/string.js"></script>
@@ -26,17 +31,21 @@
     <script src="scripts/utils/load-assets.js"></script>
     <script src="scripts/utils/geo.js"></script>
     <script src="scripts/utils/lazy-images.js"></script>
+    <script src="scripts/utils/load-google-maps-api.js"></script>
+    <script src="scripts/utils/responsive-classes.js"></script>
 
-    <!-- include spec files here... -->
+    <!-- Test files -->
     <script src="test/readme.js"></script>
     <script src="test/test-framework.js"></script>
     <script src="test/version.js"></script>
+    <script src="test/utils/load-assets.js"></script>
+    <script src="test/utils/responsive-classes.js"></script>
+    <script src="test/utils/load-google-maps-api.js"></script>
     <script src="test/utils/lazy-images.js"></script>
     <script src="test/utils/string.js"></script>
     <script src="test/utils/validation.js"></script>
     <script src="test/utils/allow-console.js"></script>
     <script src="test/utils/data.js"></script>
-    <script src="test/utils/load-assets.js"></script>
     <script src="test/utils/geo.js"></script>
 
     <script>

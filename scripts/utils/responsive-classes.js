@@ -38,98 +38,104 @@
  * }
  */
 
-// Dependencies
-var $ = require('jquery');
-var EventEmitter = require('events').EventEmitter;
-var _ = require('lodash');
-
-// Variables
-var responsiveMode;
-var $html = $('html');
-var delay;
-var emitter = new EventEmitter();
-
-module.exports = emitter;
-
-// Read content from body:after. Content is set via css.
-var getMode = function() {
-    if (window.getComputedStyle) {
-        return window.getComputedStyle(document.body, ':after').getPropertyValue('content')
-            .replace(/\'/g, '')
-            .replace(/\"/g, ''); // Firefox fix
+(function(root, factory) {
+    if (typeof exports === 'object') {
+        exports = factory(require('jquery'), require('lodash'), require('events').EventEmitter);
     } else {
-        return 'is-media-xs';
+        root.ds = root.ds || {};
+        root.ds.utils = root.ds.utils || {};
+        root.ds.utils.resposiveClasses = factory(root.jQuery, root._, root.EventEmitter);
     }
-};
+}(this, function($, _, EventEmitter) {
 
-// Set class on html and emit event
-var setMode = function() {
-    var newMode = getMode();
-    if (newMode === responsiveMode) {
-        return;
-    }
-    if (responsiveMode) {
+    // Variables
+    var responsiveMode;
+    var $html = $('html');
+    var delay;
+    var exports = new EventEmitter();
+
+    // Read content from body:after. Content is set via css.
+    var getMode = function() {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(document.body, ':after').getPropertyValue('content')
+                .replace(/\'/g, '')
+                .replace(/\"/g, ''); // Firefox fix
+        } else {
+            return 'is-media-xs';
+        }
+    };
+
+    // Set class on html and emit event
+    var setMode = function() {
+        var newMode = getMode();
+        if (newMode === responsiveMode) {
+            return;
+        }
+        if (responsiveMode) {
+            _.forEach(responsiveMode.split(' '), function(mode) {
+                $html.removeClass(mode);
+            });
+        }
+        responsiveMode = newMode;
         _.forEach(responsiveMode.split(' '), function(mode) {
-            $html.removeClass(mode);
+            $html.addClass(mode);
         });
-    }
-    responsiveMode = newMode;
-    _.forEach(responsiveMode.split(' '), function(mode) {
-        $html.addClass(mode);
-    });
-    emitter.emit('media:changed');
-};
+        exports.emit('media:changed');
+    };
 
-// Avoid constant calculations when resizing
-var delayedSetMode = function() {
-    if (delay) {
-        window.clearTimeout(delay);
-    }
-    delay = window.setTimeout(function() {
+    // Avoid constant calculations when resizing
+    var delayedSetMode = function() {
+        if (delay) {
+            window.clearTimeout(delay);
+        }
+        delay = window.setTimeout(function() {
+            setMode();
+        }, 100);
+    };
+
+    // Init
+    exports.init = _.once(function() {
         setMode();
-    }, 100);
-};
+        $(window)
+            .resize(delayedSetMode)
+            .bind('orientationchange', delayedSetMode);
+    });
 
-// Init
-module.exports.init = _.once(function() {
-    setMode();
-    $(window)
-        .resize(delayedSetMode)
-        .bind('orientationchange', delayedSetMode);
-});
+    var isXs = exports.isXs = function() {
+        return _.contains(responsiveMode, 'is-media-xs');
+    };
 
-var isXs = module.exports.isXs = function() {
-    return _.contains(responsiveMode, 'is-media-xs');
-};
+    exports.isXsLg = function() {
+        return _.contains(responsiveMode, 'is-media-xs-lg');
+    };
 
-module.exports.isXsLg = function() {
-    return _.contains(responsiveMode, 'is-media-xs-lg');
-};
+    var isSm = exports.isSm = function() {
+        return _.contains(responsiveMode, 'is-media-sm');
+    };
 
-var isSm = module.exports.isSm = function() {
-    return _.contains(responsiveMode, 'is-media-sm');
-};
+    var isMd = exports.isMd = function() {
+        return _.contains(responsiveMode, 'is-media-md');
+    };
 
-var isMd = module.exports.isMd = function() {
-    return _.contains(responsiveMode, 'is-media-md');
-};
+    var isLg = exports.isLg = function() {
+        return _.contains(responsiveMode, 'is-media-lg');
+    };
 
-var isLg = module.exports.isLg = function() {
-    return _.contains(responsiveMode, 'is-media-lg');
-};
+    exports.isGtXs = function() {
+        return !isXs();
+    };
 
-module.exports.isGtXs = function() {
-    return !isXs();
-};
+    exports.isGtSm = function() {
+        return (isMd() || isLg());
+    };
 
-module.exports.isGtSm = function() {
-    return (isMd() || isLg());
-};
+    exports.isLtLg = function() {
+        return !isLg();
+    };
 
-module.exports.isLtLg = function() {
-    return !isLg();
-};
+    exports.isLtMd = function() {
+        return (isSm() || isXs());
+    };
 
-module.exports.isLtMd = function() {
-    return (isSm() || isXs());
-};
+    return exports;
+}));

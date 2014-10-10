@@ -58,7 +58,7 @@ describe('ds.utils.geo', function() {
 
     });
 
-    describe('.kmToMiles({number|string]}', function() {
+    describe('.kmToMiles([number|string])', function() {
         it('should return a convertion of km to miles as a number', function() {
             expect(ds.utils.geo.kmToMiles(10)).to.be.a('string');
             expect(isNaN(ds.utils.geo.kmToMiles(10))).to.be.false;
@@ -66,9 +66,10 @@ describe('ds.utils.geo', function() {
         });
     });
 
-    describe('.kmToMiles({string|number], {number|string}}', function() {
+    describe('.kmToMiles([string|number], [number|string])', function() {
         it('should return miles with decimals', function() {
             expect(ds.utils.geo.kmToMiles(10, 0)).to.equal('6');
+            expect(ds.utils.geo.kmToMiles(10)).to.equal('6.21');
             expect(ds.utils.geo.kmToMiles(10, 4)).to.equal('6.2137');
             expect(ds.utils.geo.kmToMiles('10', '4')).to.equal('6.2137');
         });
