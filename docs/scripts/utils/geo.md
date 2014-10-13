@@ -19,7 +19,7 @@ var geo = require('ds-frontend/scripts/utils/geo');
 
 - [#.clientLocation](#clientlocation)
 - [#.distance](#distancefromcoords-tocoords)
-- [#.kmToMiles](#distancefromcoords-tocoords)
+- [#.kmToMiles](#kmtomileskm-decimals)
 
 ## #.clientLocation()
 
@@ -47,10 +47,11 @@ Calculate the distance between two geopositions in kilometers.
 | Name | Type | Description |
 | --- | --- | --- |
 | `fromCoords` | object |  |
-| `fromCoords.latitude` | number |  |
-| `fromCoords.longitude` | number |  |
-| `toCoords.latitude` | number |  |
-| `toCoords.longitude` | number |  |
+|  `fromCoords.latitude` | number |  |
+|  `fromCoords.longitude` | number |  |
+| `toCoords` | object |  |
+|  `toCoords.latitude` | number |  |
+|  `toCoords.longitude` | number |  |
 
 ### Returns
 
@@ -58,7 +59,7 @@ Calculate the distance between two geopositions in kilometers.
 
 ### Example
 
-```
+```js
 var from = {
     latitude: 56.00,
     longitude: 10.00
@@ -85,7 +86,7 @@ Calculate the distance between two geopositions in kilometers.
 
 ### Example
 
-```
+```js
 ds.utils.geo.kmToMiles(10); // => '6.21'
 ds.utils.geo.kmToMiles(10, 5); // => '6.21371'
 ```
