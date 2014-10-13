@@ -28,31 +28,9 @@
     var storesLoaded = $.Deferred();
     var googleLoaded = $.Deferred();
     var searched = false;
-    var settings;
+    var settings = {};
 
     var exports = new EventEmitter();
-
-    /**
-     * Filter a set of google maps search results, so only result within the given country is back.
-     * @param         {array}        results        List of google maps search results
-     * @return        {array}                       Filtered google maps search results
-     */
-    var filterGoogleResultsOnContry = function(results) {
-        if (!settings.countryCode) {
-            return results;
-        }
-        return _.filter(results, function(result) {
-            // Find country code component
-            var countryComponent = _.find(result['address_components'], function(component) {
-                return (component.types[0] === 'country');
-            });
-
-            if (!countryComponent) {
-                return false;
-            }
-            return (countryComponent['short_name'].toLowerCase() === settings.countryCode.toLowerCase());
-        });
-    };
 
     /**
      * Use google maps api to get an geopositon based on a query (e.g. 'aarhus')
@@ -63,16 +41,19 @@
         var deferred = $.Deferred();
         $.when(googleLoaded).then(function(google) {
             var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({
+            var googleQuery = {
                 address: query
-            }, function(results, status) {
+            };
+            if (settings.countryCode) {
+                googleQuery.componentRestrictions = {
+                    country: settings.countryCode.toUpperCase()
+                };
+            }
+            geocoder.geocode(googleQuery, function(results, status) {
                 if (status !== google.maps.GeocoderStatus.OK) {
                     deferred.reject();
                     return;
                 }
-
-                // Filter based on country
-                results = filterGoogleResultsOnContry(results);
 
                 if (results.length <= 0) {
                     deferred.reject();
@@ -135,6 +116,15 @@
     };
 
     /**
+     * Inject settings
+     * @param         {object}        options        key/value paris of settings
+     * @return        {void}
+     */
+    exports.injectSettings = function(options) {
+        settings = _.assign(settings, options);
+    };
+
+    /**
      * Start the controller: load google maps js api and stores data
      * @param         {object}          options
      * @param         {string}          options.dataUrl         URL to json data source
@@ -142,7 +132,7 @@
      * @return        void
      */
     exports.init = _.once(function(options) {
-        settings = options;
+        exports.injectSettings(options);
 
         if (!settings || !settings.dataUrl) {
             console.error('#.init() must have an options object including `dataUrl`');
