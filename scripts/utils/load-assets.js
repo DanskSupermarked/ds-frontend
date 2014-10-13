@@ -4,7 +4,7 @@
  */
 (function(root, factory) {
     if (typeof exports === 'object') {
-        exports = factory();
+        module.exports = factory();
     } else {
         root.ds = root.ds || {};
         root.ds.utils = root.ds.utils || {};

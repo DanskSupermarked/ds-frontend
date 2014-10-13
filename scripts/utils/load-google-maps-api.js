@@ -4,7 +4,7 @@
 
 (function(root, factory) {
     if (typeof exports === 'object') {
-        exports = factory(require('jquery'), require('lodash'), require('./load-assets'));
+        module.exports = factory(require('jquery'), require('lodash'), require('./load-assets'));
     } else {
         root.ds = root.ds || {};
         root.ds.utils = root.ds.utils || {};

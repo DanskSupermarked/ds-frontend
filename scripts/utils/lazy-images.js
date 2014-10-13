@@ -3,7 +3,7 @@
  */
 (function(root, factory) {
     if (typeof exports === 'object') {
-        exports = factory(require('jquery'));
+        module.exports = factory(require('jquery'));
     } else {
         root.ds = root.ds || {};
         root.ds.utils = root.ds.utils || {};

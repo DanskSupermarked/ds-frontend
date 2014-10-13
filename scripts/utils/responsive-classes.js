@@ -40,7 +40,7 @@
 
 (function(root, factory) {
     if (typeof exports === 'object') {
-        exports = factory(require('jquery'), require('lodash'), require('events').EventEmitter);
+        module.exports = factory(require('jquery'), require('lodash'), require('events').EventEmitter);
     } else {
         root.ds = root.ds || {};
         root.ds.utils = root.ds.utils || {};
