@@ -3,12 +3,10 @@
 This library is split into many modules. They are all available to use directly
 from the browser:
 
-```
+```html
 <script src="scripts/libs/ds-frontend/scripts/utils/geo.js"></script>
 <script>
-ds.utils.geo.clientLocation().done(function(coords) {
-    console.log(coords);
-});
+    ds.utils.geo.clientLocation().done(function(coords) { console.log(coords); });
 </script>
 ```
 
@@ -29,4 +27,5 @@ Some of the modules have external dependencies. External libraries used is:
 
 ## Modules
 
-- [`ds.utils.allowConsole`](scripts/utils/allow-console)
+- [`ds.utils.allowConsole`](scripts/utils/allow-console.md)
+- [`ds.utils.data`](scripts/utils/data.md)

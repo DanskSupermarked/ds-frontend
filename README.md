@@ -11,6 +11,8 @@ In package.json: `"ds-frontend": "git://github.com/DanskSupermarked/ds-frontend#
 
 ## Documentation
 
+- [JavaScript](/docs/javascript.md)
+
 ## Contribute
 
 All contributions are welcome as pull requests.

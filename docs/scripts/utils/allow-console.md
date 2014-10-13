@@ -12,6 +12,6 @@ In browser:
 With browserify:
 
 ```js
-var geo = require('ds-frontend/scripts/utils/allow-console');
+require('ds-frontend/scripts/utils/allow-console');
 ```
 
