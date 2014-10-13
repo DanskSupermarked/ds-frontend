@@ -83,7 +83,7 @@
         if (typeof decimals === 'undefined') {
             decimals = 2;
         } else {
-            decimals = parseInt(decimals);
+            decimals = parseInt(decimals, 10);
         }
         return (parseFloat(km) * 0.621371192).toFixed(decimals);
     };

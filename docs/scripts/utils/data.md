@@ -1,6 +1,6 @@
 # ds.utils.data
 
-Helper for retirving data in `data-*` attributes on `body`. This data is e.g.
+Helper for retrieving data in `data-*` attributes on `body`. This data is e.g.
 used for environment specific javascript settings og dictionary strings.
 
 In browser:
@@ -24,7 +24,7 @@ var data = require('ds-frontend/scripts/utils/data');
 | --- | --- | --- |
 | `category` | string | Name of the attribute |
 | `item` | string | Name of the item in the category |
-| `returnUndefined` | boolean | If `true` the function return `indefined` if item was not found instead of a warning messages |
+| `returnUndefined` | boolean | If `true` the function will return `undefined` istead of a warning messages |
 
 ### Returns
 
@@ -35,7 +35,7 @@ If category or item was not found it will return a string formatted like `{categ
 ### Example
 
 ```html
-<body data-dictionary="{&quot;newsletterSubscribeButtonSending&quot;:&quot;Signing up...&quot;>
+<body data-dictionary="{&quot;newsletterSubscribeButtonSending&quot;:&quot;Signing up...&quot;}">
 ```
 
 ```js
