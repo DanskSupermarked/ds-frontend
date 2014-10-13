@@ -36,7 +36,7 @@ consisting of `latitude` and `longitude`.
 ```js
 ds.utils.geo.clientLocation()
     .done(function(coords) {
-        console.log(cords); // => {latitude: 56.00, longitude: 45.00}
+        coords; // => {latitude: 56.00, longitude: 45.00}
     })
 ```
 
@@ -47,11 +47,11 @@ Calculate the distance between two geopositions in kilometers.
 | Name | Type | Description |
 | --- | --- | --- |
 | `fromCoords` | object |  |
-|  `fromCoords.latitude` | number |  |
-|  `fromCoords.longitude` | number |  |
+| - `fromCoords.latitude` | number |  |
+| - `fromCoords.longitude` | number |  |
 | `toCoords` | object |  |
-|  `toCoords.latitude` | number |  |
-|  `toCoords.longitude` | number |  |
+| - `toCoords.latitude` | number |  |
+| - `toCoords.longitude` | number |  |
 
 ### Returns
 
