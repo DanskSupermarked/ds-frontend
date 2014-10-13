@@ -18,7 +18,7 @@ With browserify:
 var data = require('ds-frontend/scripts/utils/data');
 ```
 
-## #(cateogry).get(item, [returnUndefined])
+## #(category).get(item, [returnUndefined])
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -29,3 +29,17 @@ var data = require('ds-frontend/scripts/utils/data');
 ### Returns
 
 A string with the value of the category-item.
+
+If category or item was not found it will return a string formatted like `{category:item} or `undefined` if `returnUndefined` is set to `true`.
+
+### Example
+
+```html
+<body data-dictionary="{&quot;newsletterSubscribeButtonSending&quot;:&quot;Signing up...&quot;>
+```
+
+```js
+ds.utils.data('dictionary').get('newsletterSubscribeButtonSending'); // => 'Signing up...'
+ds.utils.data('dictionary').get('newsletterHeader'); // => '{dictionary: newsletterHeader}'
+ds.utils.data('dictionary').get('newsletterHeader', true); // => undefined
+```
