@@ -9,6 +9,7 @@ Dependencies:
 In browser:
 
 ```html
+<script src="scripts/libs/jquery.js"></script>
 <script src="scripts/libs/ds-frontend/scripts/utils/geo.js"></script>
 <script>
     ds.utils.geo;

@@ -9,7 +9,8 @@ Dependencies:
 
 In browser:
 
-```
+```html
+<script src="scripts/libs/lodash.js"></script>
 <script src="scripts/libs/ds-frontend/scripts/utils/allow-console.js"></script>
 ```
 
