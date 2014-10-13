@@ -3,6 +3,10 @@
 Make sure that older browsers like IE8 do not crash if there is a console.#
 statement.
 
+Dependencies:
+
+- [Lo-Dash](https://lodash.com/)
+
 In browser:
 
 ```

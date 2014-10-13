@@ -4,13 +4,13 @@
 
 (function(root, factory) {
     if (typeof exports === 'object') {
-        module.exports = factory(root, require('jquery'));
+        module.exports = factory(require('jquery'));
     } else {
         root.ds = root.ds || {};
         root.ds.utils = root.ds.utils || {};
-        root.ds.utils.geo = factory(root, root.jQuery);
+        root.ds.utils.geo = factory(root.jQuery);
     }
-}(this, function(root, $) {
+}(this, function($) {
 
     var exports = {};
 

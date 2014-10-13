@@ -2,6 +2,10 @@
 
 Geolocation utilities.
 
+Dependencies:
+
+- [jQuery](http://jquery.com/download/)
+
 In browser:
 
 ```html

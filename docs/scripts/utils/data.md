@@ -3,9 +3,14 @@
 Helper for retrieving data in `data-*` attributes on `body`. This data is e.g.
 used for environment specific javascript settings og dictionary strings.
 
+Dependencies:
+
+- [jQuery](http://jquery.com/download/)
+
 In browser:
 
 ```html
+<script src="scripts/libs/jquery.js"></script>
 <script src="scripts/libs/ds-frontend/scripts/utils/data.js"></script>
 <script>
     ds.utils.data;
