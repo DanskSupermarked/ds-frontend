@@ -18,10 +18,14 @@ With browserify:
 var data = require('ds-frontend/scripts/utils/data');
 ```
 
-# #(cateogry:{string}).get(item:{string}, [returnUndefined:{boolean}]).
+## #(cateogry).get(item, [returnUndefined])
 
 | Name | Type | Description |
 | --- | --- | --- |
 | `category` | string | Name of the attribute |
 | `item` | string | Name of the item in the category |
 | `returnUndefined` | boolean | If `true` the function return `indefined` if item was not found instead of a warning messages |
+
+### Returns
+
+A string with the value of the category-item.
