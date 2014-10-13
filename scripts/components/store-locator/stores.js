@@ -33,6 +33,14 @@
     };
 
     /**
+     * Remove all stores
+     * @return        {void}
+     */
+    exports.clear = function() {
+        stores = [];
+    };
+
+    /**
      * Calculate distance in all stores and sort by the distance
      * @param         {object}        coords
      * @return        {void}
@@ -49,7 +57,7 @@
      * Add a store to the collection
      * @param        {object}        data        Data as retrieved from the Dansk Supermarked API
      */
-    exports.add = function(data) {
+    var addStore = function(data) {
         var store = new Store(data);
 
         if (!store.getCoords().latitude || !store.getCoords().longitude) {
@@ -60,6 +68,18 @@
         stores.push(store);
 
         exports.emit('store:added', store);
+    };
+
+    /**
+     * Add a store/stores to the collection
+     * @param        {object|array}        data        Data as retrieved from the Dansk Supermarked API
+     */
+    exports.add = function(data) {
+        if (_.isArray(data)) {
+            _.forEach(data, addStore);
+        } else {
+            addStore(data);
+        }
     };
 
     return exports;
