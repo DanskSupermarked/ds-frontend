@@ -1,6 +1,12 @@
 describe('ds.components.storeLocator.controller', function() {
-    ds.components.storeLocator.controller.init({
-        dataUrl: 'test/assets/ds.components.store-locator.stores.json'
+
+    before(function(done) {
+        $.getJSON('test/assets/ds.components.store-locator.stores.json').done(function(data) {
+            ds.components.storeLocator.controller.init({
+                data: data
+            });
+            done();
+        });
     });
 
     afterEach(function() {

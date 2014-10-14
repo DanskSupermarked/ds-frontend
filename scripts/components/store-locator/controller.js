@@ -132,19 +132,27 @@
      * @return        void
      */
     exports.init = _.once(function(options) {
-        exports.injectSettings(options);
 
-        if (!settings || !settings.dataUrl) {
-            console.error('#.init() must have an options object including `dataUrl`');
-            return;
-        }
-        loadGoogle().done(googleLoaded.resolve);
-        $.getJSON(settings.dataUrl).done(function(data) {
-
-            // Add all stores to collection
+        // Add all stores to collection
+        var addStores = function(data) {
             _.forEach(data, stores.add);
             storesLoaded.resolve();
-        }).fail(storesLoaded.reject);
+        };
+
+        if (!options || (!options.dataUrl && !options.data)) {
+            console.error('#.init() must have an options object including `dataUrl` or `data`');
+            return;
+        }
+
+        exports.injectSettings(options);
+
+        loadGoogle().done(googleLoaded.resolve);
+
+        if (settings.data) {
+            addStores(settings.data);
+        } else {
+            $.getJSON(settings.dataUrl).done(addStores).fail(storesLoaded.reject);
+        }
     });
 
     return exports;
