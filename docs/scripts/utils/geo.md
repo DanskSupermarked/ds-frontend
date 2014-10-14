@@ -1,4 +1,4 @@
-# ds.utils.geo
+# `ds.utils.geo`
 
 Geolocation utilities.
 
@@ -22,11 +22,11 @@ With browserify:
 var geo = require('ds-frontend/scripts/utils/geo');
 ```
 
-- [#.clientLocation](#clientlocation)
-- [#.distance](#distancefromcoords-tocoords)
-- [#.kmToMiles](#kmtomileskm-decimals)
+- [`#.clientLocation`](#clientlocation)
+- [`#.distance`](#distancefromcoords-tocoords)
+- [`#.kmToMiles`](#kmtomileskm-decimals)
 
-## #.clientLocation()
+## `#.clientLocation()`
 
 Get clients location using the html5 API. If native API is not supported it
 falls back to geolocation based on ip address.
@@ -45,7 +45,7 @@ ds.utils.geo.clientLocation()
     })
 ```
 
-## #.distance(fromCoords, toCoords)
+## `#.distance(fromCoords, toCoords)`
 
 Calculate the distance between two geopositions in kilometers.
 
@@ -76,7 +76,7 @@ var to = {
 ds.utils.geo.distance(from, to); // => 1310.062581460199
 ```
 
-## #.kmToMiles(km, [decimals])
+## `#.kmToMiles(km, [decimals])`
 
 Calculate the distance between two geopositions in kilometers.
 

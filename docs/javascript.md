@@ -32,3 +32,5 @@ Some of the modules have external dependencies. External libraries used is:
 - [`ds.utils.geo`](scripts/utils/geo.md): Geolocation utilities
 - [`ds.utils.lazyImages`](scripts/utils/lazy-images.md): Lazyload images
 - [`ds.utils.loadAssets`](scripts/utils/load-assets.md): Async load frontend assets
+- [`ds.utils.loadGoogleMapsAPI`](scripts/utils/load-google-maps-api.md): Async load Google Maps API
+- [`ds.utils.responsiveClasses`](scripts/utils/responsive-classes.md): Update responsive classes on `<html>` when window resizes

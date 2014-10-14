@@ -1,4 +1,4 @@
-# ds.utils.lazyImages
+# `ds.utils.lazyImages`
 
 Lazy load images with class `lazy` by deferring load until they are near the
 viewable area of the window.
@@ -25,8 +25,6 @@ With browserify:
 var lazyImages = require('ds-frontend/scripts/utils/lazy-images');
 ```
 
-- [#.refresh](#refresh)
-
 ## Markup
 
 ```html
@@ -37,7 +35,7 @@ var lazyImages = require('ds-frontend/scripts/utils/lazy-images');
 <img data-srcset="images/lazy-loaded-image.jpg 1000w, images/lazy-loaded-image-small.jpg 500w" class="lazy">
 ```
 
-## #.refresh()
+## `#.refresh()`
 
 Use this to refresh lazy loaded images. Used if images are added to the dom
 after DomReady has been called. E.g. if adding images async with AJAX.

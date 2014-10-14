@@ -1,4 +1,4 @@
-# ds.utils.allowConsole
+# `ds.utils.allowConsole`
 
 Make sure that older browsers like IE8 do not crash if there is a console.#
 statement.

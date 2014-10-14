@@ -1,4 +1,4 @@
-# ds.utils.loadAssets
+# `ds.utils.loadAssets`
 
 Async load javascript and styles.
 
@@ -17,10 +17,10 @@ With browserify:
 var loadAssets = require('ds-frontend/scripts/utils/load-assets');
 ```
 
-- [#.js](#js)
-- [#.css](#css)
+- [`#.js`](#js)
+- [`#.css`](#css)
 
-## #.js(src, [callback])
+## `#.js(src, [callback])`
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -39,7 +39,7 @@ ds.utils.loadAssets.js('/scripts/async-scripts.js', function() {
 })
 ```
 
-## #.css(href, [callback])
+## `#.css(href, [callback])`
 
 | Name | Type | Description |
 | --- | --- | --- |

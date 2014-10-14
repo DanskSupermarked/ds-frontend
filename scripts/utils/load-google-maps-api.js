@@ -24,6 +24,7 @@
         window[settings.callback] = function() {
             console.timeEnd('Load Google Maps Javascript API');
             deferred.resolve(window.google);
+            delete window[settings.callback];
         };
         var protocol = (document.location.protocol === 'https:' ? 'https://' : 'http://');
         var src = protocol + 'maps.googleapis.com/maps/api/js?' + $.param(settings);

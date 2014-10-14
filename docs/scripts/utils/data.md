@@ -1,4 +1,4 @@
-# ds.utils.data
+# `ds.utils.data`
 
 Helper for retrieving data in `data-*` attributes on `body`. This data is e.g.
 used for environment specific javascript settings og dictionary strings.
@@ -23,7 +23,7 @@ With browserify:
 var data = require('ds-frontend/scripts/utils/data');
 ```
 
-## #(category).get(item, [returnUndefined])
+## `#(category).get(item, [returnUndefined])`
 
 | Name | Type | Description |
 | --- | --- | --- |
