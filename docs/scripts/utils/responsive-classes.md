@@ -14,12 +14,14 @@ Dependencies:
 
 - [Lo-Dash](https://lodash.com/)
 - [jQuery](http://jquery.com/download/)
+- [EventEmitter](https://github.com/Wolfy87/EventEmitter) (native EventEmitter is used i Browserify)
 
 In browser:
 
 ```html
 <script src="scripts/libs/lodash.js"></script>
 <script src="scripts/libs/jquery.js"></script>
+<script src="scripts/libs/eventemitter.js"></script>
 <script src="scripts/libs/ds-frontend/scripts/utils/responsive-classes.js"></script>
 <script>
     ds.utils.responsiveClasses;

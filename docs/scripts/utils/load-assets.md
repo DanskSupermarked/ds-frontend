@@ -17,8 +17,8 @@ With browserify:
 var loadAssets = require('ds-frontend/scripts/utils/load-assets');
 ```
 
-- [`#.js`](#js)
-- [`#.css`](#css)
+- [`#.js`](#jssrc-callback)
+- [`#.css`](#csshref-callback)
 
 ## `#.js(src, [callback])`
 
