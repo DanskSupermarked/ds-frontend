@@ -17,7 +17,7 @@ gulp.dsConfig = {
         dest: '.tmp'
     }
 };
-require('./build');
+require('./build/index.js');
 
 gulp.task('test', ['lint', 'browserify'], function() {
     return gulp.src('index.html')
