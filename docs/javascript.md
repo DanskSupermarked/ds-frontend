@@ -27,6 +27,8 @@ Some of the modules have external dependencies. External libraries used is:
 
 ## Modules
 
+### Utils
+
 - [`ds.utils.allowConsole`](scripts/utils/allow-console.md): No errors when using `console`in old browsers
 - [`ds.utils.data`](scripts/utils/data.md): Retrieve `data-*` from from `<body>`
 - [`ds.utils.geo`](scripts/utils/geo.md): Geolocation utilities
@@ -37,3 +39,7 @@ Some of the modules have external dependencies. External libraries used is:
 - [`ds.utils.string`](scripts/utils/string.md): Helper functions to manipulate strings
 - [`ds.utils.url`](scripts/utils/url.md): Helper functions working with URLs
 - [`ds.utils.validation`](scripts/utils/validation.md): Helper functions for validating strings
+
+### Components
+
+- [`ds.components.storeLocator`](scripts/components/store-locator.md): Controller for making a store locator based on data from Dansk Supermarked API

@@ -6,7 +6,7 @@ Dependencies:
 
 - [Lo-Dash](https://lodash.com/)
 - [jQuery](http://jquery.com/download/)
-- [EventEmitter](https://github.com/Wolfy87/EventEmitter) (native EventEmitter is used i Browserify)
+- [EventEmitter](https://github.com/Wolfy87/EventEmitter) (native EventEmitter is used in Browserify)
 
 In browser:
 

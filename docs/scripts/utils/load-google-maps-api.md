@@ -37,7 +37,9 @@ Settings should be applied before the first request of Google Maps API.
 
 ### Possible options
 
-`libraries`: See [developers.google.com/maps/documentation/javascript/libraries](https://developers.google.com/maps/documentation/javascript/libraries)
+`libraries` (string): See [developers.google.com/maps/documentation/javascript/libraries](https://developers.google.com/maps/documentation/javascript/libraries)
+`language` (string): Language to use. E.g. 'da'
+`region` (string): Region to restrict autocomplete for. E.g. 'DK'
 
 ### Example
 

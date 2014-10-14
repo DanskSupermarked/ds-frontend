@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Store Locator by Danks Supermarked</title>
+    <style type="text/css">
+    #map {
+        height: 600px;
+    }
+    #search-input {
+        width: 75%;
+    }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+<input type="text" id="search-input"> <a href="#" id="search-btn">Search</a>
+<div id="search-result"></div>
+
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../node_modules/lodash/dist/lodash.js"></script>
+<script src="../node_modules/wolfy87-eventemitter/EventEmitter.js"></script>
+<script src="../scripts/utils/load-assets.js"></script>
+<script src="../scripts/utils/load-google-maps-api.js"></script>
+<script src="../scripts/utils/geo.js"></script>
+<script src="../scripts/components/store-locator/store.js"></script>
+<script src="../scripts/components/store-locator/stores.js"></script>
+<script src="../scripts/components/store-locator/controller.js"></script>
+<script>
+(function() {
+
+var map;
+var controller = ds.components.storeLocator.controller;
+var stores = ds.components.storeLocator.stores;
+
+ds.utils.loadGoogleMapsAPI.settings({
+    libraries: 'places'
+});
+var googleLoaded = ds.utils.loadGoogleMapsAPI();
+
+stores.on('store:added', function(store) {
+    $.when(googleLoaded).then(function(google) {
+        store.marker =  new google.maps.Marker({
+            position: new google.maps.LatLng(store.getCoords().latitude, store.getCoords().longitude),
+            map: map,
+            title: store.data.name
+        });
+    });
+});
+
+controller.on('map:bounds', function(bounds) {
+    map.fitBounds(bounds);
+});
+
+stores.on('stores:sorted', function() {
+    var result = '';
+    $.each(stores.get(), function(index, store) {
+        result += '<p>' + store.data.name + ': ' + store.distance.toFixed(2) + ' km away</p>';
+    });
+    $('#search-result').html(result);
+});
+
+googleLoaded.done(function(google) {
+    map = new google.maps.Map($('#map').get(0), {
+        mapType: google.maps.MapTypeId.ROADMAP,
+        zoom: 0
+    });
+});
+
+controller.init({
+    countryCode: 'DK',
+    dataUrl: '../test/assets/ds.components.store-locator.stores.json'
+});
+
+controller.zoomTo('DK');
+
+$('#search-btn').on('click', function(e) {
+    e.preventDefault();
+    controller.search($('#search-input').val());
+});
+
+}());
+</script>
+</body>
+</html>

@@ -30,6 +30,14 @@
     var searched = false;
     var settings = {};
 
+    storesLoaded.fail(function(err) {
+        console.warn('Store could not be loaded', err);
+    });
+
+    googleLoaded.fail(function(err) {
+        console.warn('Google Maps API could not be loaded', err);
+    });
+
     var exports = new EventEmitter();
 
     /**
@@ -139,18 +147,13 @@
             storesLoaded.resolve();
         };
 
-        if (!options || (!options.dataUrl && !options.data)) {
-            console.error('#.init() must have an options object including `dataUrl` or `data`');
-            return;
-        }
-
         exports.injectSettings(options);
 
         loadGoogle().done(googleLoaded.resolve);
 
         if (settings.data) {
             addStores(settings.data);
-        } else {
+        } else if (settings.dataUrl) {
             $.getJSON(settings.dataUrl).done(addStores).fail(storesLoaded.reject);
         }
     });
