@@ -23,7 +23,7 @@ In browser:
 With browserify:
 
 ```js
-var {{nameOfModule}} = require('ds-frontend/scripts/{{path-to-module}}');
+var {{nameOfModule}} = require('ds-frontend/scripts/{{path-to-file}}');
 ```
 
 - [`#.table-of-content()`](#table-of-content)
