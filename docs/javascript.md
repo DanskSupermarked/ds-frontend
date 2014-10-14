@@ -35,3 +35,4 @@ Some of the modules have external dependencies. External libraries used is:
 - [`ds.utils.loadGoogleMapsAPI`](scripts/utils/load-google-maps-api.md): Async load Google Maps API
 - [`ds.utils.responsiveClasses`](scripts/utils/responsive-classes.md): Update responsive classes on `<html>` when window resizes
 - [`ds.utils.string`](scripts/utils/string.md): Helper functions to manipulate strings
+- [`ds.utils.url`](scripts/utils/url.md): Helper functions working with URLs

@@ -38,6 +38,8 @@ var {{nameOfModule}} = require('ds-frontend/scripts/{{path-to-module}}');
 
 ### Return
 
+`boolean`: {{description}}
+
 ### Example
 
 ```js

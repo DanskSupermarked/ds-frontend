@@ -16,12 +16,12 @@
 
     /**
      * Get value of query from url.
-     * @param         {string}        name        key
+     * @param         {string}        key        key
      * @return        {string}                    value
      */
-    exports.getQuery = function(name) {
+    exports.getQuery = function(key) {
         var val = decodeURI(
-            (new RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1]
+            (new RegExp(key + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1]
         );
         if (val === 'null') {
             val = undefined;
