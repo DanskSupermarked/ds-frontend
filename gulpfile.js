@@ -13,7 +13,7 @@ gulp.dsConfig = {
         src: 'scripts/**/*.js'
     },
     browserify: {
-        src: 'test/browserify.js',
+        entries: './test/browserify.js',
         dest: '.tmp'
     }
 };

@@ -1,44 +1,52 @@
 {
-  "name": "ds-frontend",
-  "version": "0.1.1",
-  "description": "Dansk Supermarked reusable frontend components",
-  "main": "index.js",
-  "scripts": {
-    "test": "gulp test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/DanskSupermarked/ds-frontend.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/DanskSupermarked/ds-frontend/issues"
-  },
-  "homepage": "https://github.com/DanskSupermarked/ds-frontend",
-  "devDependencies": {
-    "chai": "^1.9.2",
-    "connect": "^3.2.0",
-    "gulp": "^3.8.8",
-    "gulp-browserify": "^0.5.0",
-    "gulp-jscs": "^1.1.2",
-    "gulp-jshint": "^1.8.5",
-    "gulp-livereload": "^2.1.1",
-    "gulp-load-plugins": "^0.7.0",
-    "gulp-mocha-phantomjs": "^0.5.1",
-    "gulp-util": "^3.0.1",
-    "jshint-stylish": "^1.0.0",
-    "map-stream": "^0.1.0",
-    "mocha": "^1.21.4",
-    "opn": "^1.0.0",
-    "run-sequence": "^1.0.1",
-    "serve-static": "^1.6.3",
-    "wolfy87-eventemitter": "^4.2.6"
-  },
-  "dependencies": {
-    "handlebars": "^2.0.0",
-    "hbsfy": "^2.2.0",
-    "jquery": "*",
-    "lodash": "*"
-  }
+    "name": "ds-frontend",
+    "version": "0.1.2",
+    "description": "Dansk Supermarked reusable frontend components",
+    "main": "index.js",
+    "scripts": {
+        "test": "gulp test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DanskSupermarked/ds-frontend.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/DanskSupermarked/ds-frontend/issues"
+    },
+    "homepage": "https://github.com/DanskSupermarked/ds-frontend",
+    "devDependencies": {
+        "chai": "^1.9.2",
+        "connect": "^3.2.0",
+        "gulp-livereload": "^2.1.1",
+        "gulp-mocha-phantomjs": "^0.5.1",
+        "map-stream": "^0.1.0",
+        "mocha": "^1.21.5",
+        "opn": "^1.0.0",
+        "run-sequence": "^1.0.1",
+        "serve-static": "^1.6.4",
+        "wolfy87-eventemitter": "^4.2.6"
+    },
+    "dependencies": {
+        "gulp": "^3.8.8",
+        "gulp-buffer": "0.0.2",
+        "gulp-filter": "^1.0.2",
+        "gulp-jscs": "^1.1.2",
+        "gulp-jshint": "^1.8.5",
+        "gulp-load-plugins": "^0.7.0",
+        "gulp-rename": "^1.2.0",
+        "gulp-rev": "^1.1.0",
+        "gulp-sourcemaps": "^1.2.4",
+        "gulp-uglify": "^1.0.1",
+        "gulp-util": "^3.0.1",
+        "jshint-stylish": "^1.0.0",
+        "browserify": "^6.1.0",
+        "handlebars": "^2.0.0",
+        "hbsfy": "^2.2.0",
+        "jquery": "*",
+        "lodash": "*",
+        "mold-source-map": "^0.3.0",
+        "vinyl-source-stream": "^1.0.0"
+    }
 }
