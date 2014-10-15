@@ -47,7 +47,7 @@ gulp.task('browserify', function(done) {
                 loadMaps: true
             }))
             .pipe($.uglify())
-            .pipe($.sourcemaps.write('./maps'))
+            .pipe($.sourcemaps.write('.'))
             .pipe(gulp.dest(gulp.dsConfig.browserify.dest))
             .pipe($.filter(['*.js']))
             .pipe($.rev())
