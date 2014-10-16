@@ -1,6 +1,6 @@
 /**
  * Bundle javascript with Browserify, minify and make source maps.
- * The bundeled files are split into custom scripts and a file with vendor scripts.
+ * The bundled files are split into custom scripts and a file with vendor scripts.
  */
 
 // Dependencies

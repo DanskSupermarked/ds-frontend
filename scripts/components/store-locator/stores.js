@@ -61,7 +61,7 @@
         var store = new Store(data);
 
         if (!store.getCoords().latitude || !store.getCoords().longitude) {
-            console.warn(store, 'not added to stores collection because geopositions is invalid.');
+            console.warn(store, 'not added to stores collection because geopositions are invalid.');
             return;
         }
 
@@ -71,7 +71,7 @@
     };
 
     /**
-     * Add a store/stores to the collection
+     * Add store/stores to the collection
      * @param        {object|array}        data        Data as retrieved from the Dansk Supermarked API
      */
     exports.add = function(data) {

@@ -10,7 +10,7 @@ describe('ds.utils.responsiveClasses', function() {
     });
     describe('.init()', function() {
 
-        it('sould emit an event when is-media is set/changed', function(done) {
+        it('should emit an event when is-media is set/changed', function(done) {
             ds.utils.responsiveClasses.on('media:changed', done);
             ds.utils.responsiveClasses.init();
         });

@@ -1,5 +1,5 @@
 /**
- * Set of validation methods that al return boolean
+ * Set of validation methods that all return boolean
  */
 
 (function(root, factory) {

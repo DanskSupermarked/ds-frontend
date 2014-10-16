@@ -1,7 +1,7 @@
 # `ds.components.storeLocator`
 
 Logic for making store locator. The component is divided into a store model, a
-stores colelction and a controller.
+stores collection and a controller.
 
 These can be used to create a view for the store locator.
 
@@ -100,7 +100,7 @@ successfull search yet.
 
 ### Event
 
-Controller fires a `map:bounds` event when successfull translated input to
+Controller fires a `map:bounds` event when successfully translated input to
 google map bounds.
 
 ### Example
@@ -124,14 +124,14 @@ the distance to queried geoposition.
 
 ### Event
 
-Controller fires a `search:succeeded` event when successfull translated query to
-google map geoposition.
+Controller fires a `search:succeeded` event when successfully translated query to
+google maps geoposition.
 
 Controller fires a `search:failed` event when query could not be translated to
-a google map geoposition.
+a google maps geoposition.
 
-Stores collection fires a `stores:sorted` event when successfull translated
-query to google map geoposition and stores has been sorted.
+Stores collection fires a `stores:sorted` event when successfully translated
+query to google maps geoposition and stores has been sorted.
 
 ### Example
 
@@ -178,7 +178,7 @@ Sort the list of stores by distance to a geoposition.
 
 ### Event
 
-Stores collection fires a `stores:sorted` event when stores has been sorted.
+Stores collection fires a `stores:sorted` event when stores have been sorted.
 
 ### Example
 

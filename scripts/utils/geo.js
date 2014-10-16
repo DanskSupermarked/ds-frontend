@@ -24,8 +24,8 @@
 
     /**
      * Get client geo position if browser supports it
-     * @param         {bool}          useFreeGeoIp      Use fregeoip.net instead of native geolocation
-     * @param         {number}        cachedTime        MS to cache geoposito result. Defaults to 60000 (10 mins)
+     * @param         {bool}          useFreeGeoIp      Use freegeoip.net instead of native geolocation
+     * @param         {number}        cachedTime        MS to cache geoposition result. Defaults to 60000 (10 mins)
      * @return        {promise}
      */
     exports.clientLocation = function(useFreeGeoIp, cachedTime) {
@@ -69,7 +69,7 @@
             return toRadian(v2) - toRadian(v1);
         };
 
-        // Calculate distance bewteen two geopositions
+        // Calculate distance between two geopositions
         return radius * 2 * Math.asin(Math.min(1, Math.sqrt((Math.pow(Math.sin((diffRadian(geo1.latitude, geo2.latitude)) / 2.0), 2.0) + Math.cos(toRadian(geo1.latitude)) * Math.cos(toRadian(geo2.latitude)) * Math.pow(Math.sin((diffRadian(geo1.longitude, geo2.longitude)) / 2.0), 2.0)))));
     };
 

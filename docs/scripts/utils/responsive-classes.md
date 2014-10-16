@@ -65,7 +65,7 @@ body:after {
 
 ## `#.init()`
 
-Set class on `<body>` and updates on window resize and orienchange.
+Set class on `<body>` and updates on window resize and orientation change.
 
 ## `#.on('media:changed', callback)`
 
@@ -91,7 +91,7 @@ Checks if media size is of type.
 
 __Return__
 
-`boolean`: Whether the midea size is of type.
+`boolean`: Whether the media size is of type.
 
 __Example__
 
@@ -111,7 +111,7 @@ Checks if media size is greater/less than.
 
 __Return__
 
-`boolean`: Whether the midea size is greater/less than.
+`boolean`: Whether the media size is greater/less than.
 
 __Example__
 
