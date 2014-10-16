@@ -30,7 +30,7 @@ Some of the modules have external dependencies. External libraries used is:
 ### Utils
 
 - [`ds.utils.allowConsole`](scripts/utils/allow-console.md): No errors when using `console`in old browsers
-- [`ds.utils.data`](scripts/utils/data.md): Retrieve `data-*` from from `<body>`
+- [`ds.utils.data`](scripts/utils/data.md): Retrieve `data-*` from `<body>`
 - [`ds.utils.geo`](scripts/utils/geo.md): Geolocation utilities
 - [`ds.utils.lazyImages`](scripts/utils/lazy-images.md): Lazyload images
 - [`ds.utils.loadAssets`](scripts/utils/load-assets.md): Async load frontend assets

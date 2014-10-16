@@ -27,11 +27,11 @@ var string = require('ds-frontend/scripts/utils/string');
 | `source` | string | String to check up against |
 | `needle` | string | String to check for |
 
-Check if strings start with `needle`.
+Checks if strings start with `needle`.
 
 ### Return
 
-`boolean`: Wheter the `source` start with `needle`.
+`boolean`: Whether the `source` starts with `needle`.
 
 ### Example
 

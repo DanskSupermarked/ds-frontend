@@ -1,7 +1,7 @@
 # `ds.utils.data`
 
 Helper for retrieving data in `data-*` attributes on `body`. This data is e.g.
-used for environment specific javascript settings og dictionary strings.
+used for environment specific javascript settings and dictionary strings.
 
 Dependencies:
 

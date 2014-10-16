@@ -1,6 +1,6 @@
 /**
  * Retrieve data attribute from body element.
- * E.g. used to retirve Umbraco dictionaru values.
+ * E.g. used to retrieve Umbraco dictionary values.
  *
  * Example:
  * var data = require('ds-frontend/scripts/utils/data');
@@ -17,7 +17,7 @@
     }
 }(this, function($) {
 
-    // Cache data i local var
+    // Cache data in local var
     var data = $('body').data();
 
     /**
@@ -28,8 +28,8 @@
     var exports = function(type) {
         var incaseType = type.toLowerCase();
         return {
-            /**
-             * Get data from category
+            /*
+*             * Get data from category
              * @param         {string}      item
              * @param         {bool}        returnUndefined        Set to true if it should return undefined if data does not exists. If not set it will set a warning in the console
              * @return        {string}                             Value
