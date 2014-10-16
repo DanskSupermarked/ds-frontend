@@ -83,7 +83,7 @@ Calculate the distance between two geopositions in kilometers.
 | Name | Type | Description |
 | --- | --- | --- |
 | `km` | Number, String | A number or a string formatted as a number |
-| `decimals` | Number, String | How many decimals shpuld be rounded to. Default to `2` |
+| `decimals` | Number, String | How many decimals should be rounded to. Default to `2` |
 
 ### Returns
 

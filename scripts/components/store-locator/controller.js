@@ -110,7 +110,7 @@
                 exports.emit('search:succeeded', coords);
                 stores.sortByGeo(coords);
 
-                // Text search. E.g. 'Leeds'
+            // Text search. E.g. 'Leeds'
             } else {
                 queryToGeo(query).done(function(coords) {
                     searched = true;
@@ -125,7 +125,7 @@
 
     /**
      * Inject settings
-     * @param         {object}        options        key/value paris of settings
+     * @param         {object}        options        key/value pairs of settings
      * @return        {void}
      */
     exports.injectSettings = function(options) {

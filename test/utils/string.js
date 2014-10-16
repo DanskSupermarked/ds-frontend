@@ -11,7 +11,7 @@ describe('ds.utils.string(source:{string})', function() {
     });
 
     describe('.stripTags()', function() {
-        it('should strip tags from a strig', function() {
+        it('should strip tags from a string', function() {
             expect(ds.utils.string('<body><a href="#" class="test">test</a></body>').stripTags()).to.equal('test');
         });
     });

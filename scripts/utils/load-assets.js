@@ -79,7 +79,7 @@
         styleSheet.media = 'only x';
         // inject link
         ref.parentNode.insertBefore(styleSheet, ref);
-        // set media back to `all` so that the styleshet applies once it loads
+        // set media back to `all` so that the stylesheet applies once it loads
         setTimeout(function() {
             styleSheet.media = 'all';
         }, 0);
