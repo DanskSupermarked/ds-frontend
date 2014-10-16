@@ -1,0 +1,33 @@
+//Media queries
+@xsLg: ~"(min-width: 520px)";
+@sm: ~"(min-width: @{screen-sm-min})";
+@md: ~"(min-width: @{screen-md-min})";
+@lg: ~"(min-width: @{screen-lg-min})";
+
+@isXs: ~"(max-width: @{screen-xs-max})";
+@isSm: ~"(min-width: @{screen-sm-min}) and (max-width: @{screen-sm-max})";
+@isMd: ~"(min-width: @{screen-md-min}) and (max-width: @{screen-md-max})";
+@isLg: @lg;
+
+@isMobile: ~"(max-width: @{screen-sm-max})";
+
+//Example
+//@media @sm{display:none;}
+
+body:after {
+    position: fixed;
+    left: -99999px;
+    content: "is-media-xs";
+    @media (min-width: 520px) {
+        content: "is-media-xs is-media-xs-lg";
+    }
+    @media @sm {
+        content: "is-media-sm";
+    }
+    @media @md {
+        content: "is-media-md";
+    }
+    @media @lg {
+        content: "is-media-lg";
+    }
+}
