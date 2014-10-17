@@ -6,6 +6,10 @@
 // Dependencies
 var path = require('path');
 var gulp = require('gulp');
+var csswring = require('csswring');
+var mqpacker = require('css-mqpacker');
+var autoprefixer = require('autoprefixer-core');
+var less = require('less-stream');
 var $ = require('gulp-load-plugins')();
 
 gulp.task('ds-less', function(done) {
@@ -33,8 +37,8 @@ gulp.task('ds-less', function(done) {
         gulp.src(entry)
             .pipe($.sourcemaps.init())
             .pipe($.less())
-            .pipe($.autoprefixer())
-            .pipe($.cssmin())
+            .pipe($.concat(path.basename(entry)))
+            .pipe($.postcss([autoprefixer(), mqpacker, csswring]))
             .pipe($.sourcemaps.write('.'))
             .pipe(gulp.dest(gulp.dsConfig.less.dest))
             .pipe($.filter('*.css'))

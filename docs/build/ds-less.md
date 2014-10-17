@@ -4,7 +4,9 @@ Compile [LESS](http://lesscss.org/).
 
 The task includes [autoprefixer](https://github.com/postcss/autoprefixer),
 source maps, minifying using
-[clean-css](https://github.com/jakubpawlowicz/clean-css) and
+[csswring](https://www.npmjs.org/package/csswring),
+pack media queries using
+[css-mqpacker](https://www.npmjs.org/package/css-mqpacker) and
 [revisioning](https://github.com/sindresorhus/gulp-rev).
 
 ## Config
