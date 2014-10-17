@@ -37,14 +37,14 @@ gulp.task('build', ['ds-browserify', 'ds-less']);
 ```js
 // gulpfile.js
 var gulp = require('gulp');
-var livereload = require('gulp-livereload');
+require('ds-frontend/build');
 
 gulp.dsConfig = {
     lint: {
         src: 'scripts/**/*.js'
     },
     browserify: {
-        src: ['scripts/main.js', 'scripts/externals.js'],
+        src: ['scripts/main.js', 'scripts/head.js'],
         dest: 'dist/scripts'
     },
     less: {
@@ -53,14 +53,11 @@ gulp.dsConfig = {
     }
 };
 
-require('ds-frontend/build');
 
 gulp.task('build', ['ds-lint', 'ds-less', 'ds-browserify']);
 
 gulp.task('watch', function() {
-    livereload.listen();
     gulp.watch('scripts/**/*.{js,hbs}', ['ds-lint', 'ds-browserify']);
     gulp.watch('less/**/*.less', ['ds-less']);
-    gulp.watch(['dist/scripts/**/*', 'dist/css/**/*']).on('change', livereload.changed);
 });
 ```
