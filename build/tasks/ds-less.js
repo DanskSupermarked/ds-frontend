@@ -9,7 +9,6 @@ var gulp = require('gulp');
 var csswring = require('csswring');
 var mqpacker = require('css-mqpacker');
 var autoprefixer = require('autoprefixer-core');
-var less = require('less-stream');
 var $ = require('gulp-load-plugins')();
 
 gulp.task('ds-less', function(done) {
