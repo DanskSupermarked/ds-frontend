@@ -38,6 +38,9 @@ gulp.task('ds-less', function(done) {
             .pipe($.less())
             .pipe($.concat(path.basename(entry)))
             .pipe($.postcss([autoprefixer(), mqpacker, csswring]))
+            .pipe($.rename({
+                extname: '.css'
+            }))
             .pipe($.sourcemaps.write('.'))
             .pipe(gulp.dest(gulp.dsConfig.less.dest))
             .pipe($.filter('*.css'))
