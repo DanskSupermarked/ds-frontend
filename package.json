@@ -33,6 +33,7 @@
         "gulp": "^3.8.8",
         "gulp-autoprefixer": "0.0.10",
         "gulp-buffer": "0.0.2",
+        "gulp-cssmin": "^0.1.6",
         "gulp-filter": "^1.0.2",
         "gulp-jscs": "^1.1.2",
         "gulp-jshint": "^1.8.5",

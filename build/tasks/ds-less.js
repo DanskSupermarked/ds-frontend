@@ -34,6 +34,7 @@ gulp.task('ds-less', function(done) {
             .pipe($.sourcemaps.init())
             .pipe($.less())
             .pipe($.autoprefixer())
+            .pipe($.cssmin())
             .pipe($.sourcemaps.write('.'))
             .pipe(gulp.dest(gulp.dsConfig.less.dest))
             .pipe($.filter('*.css'))

@@ -33,6 +33,11 @@ gulp.task('ds-browserify', function(done) {
     var count = 0;
 
     gulp.dsConfig.browserify.src.forEach(function(entry) {
+
+        // Browserify needs ./ at beginning for entries
+        if (entry.indexOf('./') !== 0) {
+            entry = './' + entry;
+        }
         var basename = path.basename(entry, '.js');
         browserify({
             entries: entry,
