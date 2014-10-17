@@ -8,10 +8,11 @@ In `gulpfile.js`:
 
 ```js
 var gulp = require('gulp');
+require('ds-frontend/build');
+
 gulp.dsConfig = {
     // Configs for tasks beeing used. Read more about configs in each task
 };
-require('ds-frontend/build');
 ```
 
 Then the ds gulp task could be used like:

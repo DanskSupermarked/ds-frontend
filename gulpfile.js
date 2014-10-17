@@ -7,6 +7,7 @@
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
+require('./build');
 
 gulp.dsConfig = {
     lint: {
@@ -21,7 +22,6 @@ gulp.dsConfig = {
         dest: '.tmp'
     }
 };
-require('./build');
 
 gulp.task('test', ['ds-lint', 'ds-browserify', 'ds-less'], function() {
     return gulp.src('index.html')

@@ -13,6 +13,7 @@ You could use Dansk Supermarkeds settings for [jscs](https://github.com/DanskSup
 ```js
 var gulp = require('gulp');
 require('ds-frontend/build');
+
 gulp.dsConfig = {
     lint: {
         src: 'scripts/**/*.js'

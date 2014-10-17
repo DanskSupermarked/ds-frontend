@@ -15,6 +15,7 @@ Dependencies:
 ```js
 var gulp = require('gulp');
 require('ds-frontend/build');
+
 gulp.dsConfig = {
     browserify: {
         src: ['scripts/main.js','scripts/head.js']

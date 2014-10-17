@@ -12,6 +12,7 @@ source maps, minifying using
 ```js
 var gulp = require('gulp');
 require('ds-frontend/build');
+
 gulp.dsConfig = {
     less: {
         src: ['less/main.less', 'less/ie8.less'],
