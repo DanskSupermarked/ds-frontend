@@ -78,7 +78,7 @@ Set class on `<body>` and updates on window resize and orientation change.
 
 ```js
 ds.utils.responsiveClasses.on('media:changed', function() {
-    if (ds.utils.resposiveClasses.isXs()) {
+    if (ds.utils.responsiveClasses.isXs()) {
         // Collapsed menu
     } else {
         // Full menu
@@ -98,7 +98,7 @@ __Example__
 
 ```js
 ds.utils.responsiveClasses.on('media:changed', function() {
-    if (ds.utils.resposiveClasses.isXs()) {
+    if (ds.utils.responsiveClasses.isXs()) {
         // Collapsed menu
     } else {
         // Full menu
@@ -118,7 +118,7 @@ __Example__
 
 ```js
 ds.utils.responsiveClasses.on('media:changed', function() {
-    if (ds.utils.resposiveClasses.isGtXs()) {
+    if (ds.utils.responsiveClasses.isGtXs()) {
         // Full menu for sm, md and lg
     }
 });

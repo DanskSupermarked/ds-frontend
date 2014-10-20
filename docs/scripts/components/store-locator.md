@@ -90,9 +90,9 @@ ds.components.storeLocator.controller.init({
 
 ## `#.controller.zoomTo(region)`
 
-Get bounds of a search result. Can e.g. be used to zoom the map to Denamrk.
+Get bounds of a search result. Can e.g. be used to zoom the map to Denmark.
 This function will only fire, if `#.controller.search()` have not had a
-successfull search yet.
+successful search yet.
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -115,7 +115,7 @@ ds.components.storeLocator.controller.zoomTo('DK');
 ## `#.controller.search(query)`
 
 Trying to convert query to a geoposition using Google Maps.
-If query is succesfully converted the stores collection is sorted based on
+If query is successfully converted the stores collection is sorted based on
 the distance to queried geoposition.
 
 | Name | Type | Description |
@@ -137,7 +137,7 @@ query to google maps geoposition and stores has been sorted.
 
 ```js
 ds.components.storeLocator.controller.on('search:succeeded', function() {
-    // Show message to the user, that the search was succesfull
+    // Show message to the user, that the search was successful
 });
 
 ds.components.storeLocator.controller.on('search:failed', function() {
