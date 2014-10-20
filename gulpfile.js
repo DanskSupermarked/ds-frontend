@@ -7,19 +7,23 @@
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
+require('./build');
 
 gulp.dsConfig = {
     lint: {
         src: 'scripts/**/*.js'
     },
     browserify: {
-        src: 'test/browserify.js',
+        src: 'test/build/browserify.js',
+        dest: '.tmp'
+    },
+    less: {
+        src: 'test/build/less.less',
         dest: '.tmp'
     }
 };
-require('./build');
 
-gulp.task('test', ['lint', 'browserify'], function() {
+gulp.task('test', ['ds-lint', 'ds-browserify', 'ds-less'], function() {
     return gulp.src('index.html')
         .pipe($.mochaPhantomjs({
             reporter: 'spec'
@@ -31,7 +35,10 @@ gulp.task('serve', function(done) {
     gulp.watch([
         'scripts/**/*.js',
         'test/**/*.js',
-        'index.html'
+        'index.html',
+        'index.js',
+        'README.md',
+        'package.json'
     ])
         .on('change', $.livereload.changed);
 

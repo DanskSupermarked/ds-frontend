@@ -15,6 +15,7 @@ Dependencies:
 - [Lo-Dash](https://lodash.com/)
 - [jQuery](http://jquery.com/download/)
 - [EventEmitter](https://github.com/Wolfy87/EventEmitter) (native EventEmitter is used i Browserify)
+- [ds-frontend/less/tools/media.less](../../less/tools/media.md)
 
 In browser:
 
