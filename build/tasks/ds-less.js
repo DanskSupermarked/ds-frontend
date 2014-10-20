@@ -7,7 +7,6 @@
 var path = require('path');
 var gulp = require('gulp');
 var csswring = require('csswring');
-var mqpacker = require('css-mqpacker');
 var autoprefixer = require('autoprefixer-core');
 var $ = require('gulp-load-plugins')();
 
@@ -37,7 +36,7 @@ gulp.task('ds-less', function(done) {
             .pipe($.sourcemaps.init())
             .pipe($.less())
             .pipe($.concat(path.basename(entry)))
-            .pipe($.postcss([autoprefixer(), mqpacker, csswring]))
+            .pipe($.postcss([autoprefixer(), csswring]))
             .pipe($.rename({
                 extname: '.css'
             }))
