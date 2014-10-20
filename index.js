@@ -6,5 +6,5 @@
         root.ds.VERSION = factory();
     }
 }(this, function() {
-    return '0.1.4';
+    return '0.1.5';
 }));

@@ -2,9 +2,9 @@
 
 Reusable frontend utils, components and tools used by [Dansk Supermarked](http://dansksupermarked.dk/en/)
 
-Stable version: __v0.1.4__
+Stable version: __v0.1.5__
 
-In package.json: `"ds-frontend": "git://github.com/DanskSupermarked/ds-frontend#v0.1.4"`
+In package.json: `"ds-frontend": "git://github.com/DanskSupermarked/ds-frontend#v0.1.5"`
 
 ## Documentation
 
