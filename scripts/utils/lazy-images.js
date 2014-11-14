@@ -24,6 +24,14 @@
     var loadImgSrc = function($img) {
         if ($img.data('srcset')) {
             $img.attr('srcset', $img.data('srcset'));
+
+            // Make sure image is loaded if using picturefill
+            if (window.picturefill) {
+                window.picturefill({
+                    elements: [$img.get(0)],
+                    reevaluate: true
+                });
+            }
         } else if ($img.data('src')) {
             $img.attr('src', $img.data('src'));
         }
