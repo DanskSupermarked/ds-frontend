@@ -154,7 +154,17 @@
         if (settings.data) {
             addStores(settings.data);
         } else if (settings.dataUrl) {
-            $.getJSON(settings.dataUrl).done(addStores).fail(storesLoaded.reject);
+            $.ajax({
+                  type: 'GET',
+                  url: settings.dataUrl,
+                  dataType: 'json',
+                  async: false,
+                  headers: {
+                      'Authorization': 'Basic ' + btoa(options.token + ':')
+                  }
+              })
+              .done(addStores)
+              .fail(storesLoaded.reject);
         }
     });
 

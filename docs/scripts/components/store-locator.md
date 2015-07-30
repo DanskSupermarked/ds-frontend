@@ -64,6 +64,8 @@ Initialize the store locator component.
 
 `dataUrl` (string): URL to API service serving data as json
 
+`token` (string): If using the `dataUrl` you can should pass the API token to be used.
+
 `countryCode` (string): Restrict search result to a country. E.g. 'DK'
 
 ### Events

@@ -18,8 +18,8 @@
 <input type="text" id="search-input"> <a href="#" id="search-btn">Search</a>
 <div id="search-result"></div>
 
-<script src="../node_modules/jquery/dist/jquery.js"></script>
-<script src="../node_modules/lodash/dist/lodash.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.min.js"></script>
 <script src="../node_modules/wolfy87-eventemitter/EventEmitter.js"></script>
 <script src="../scripts/utils/load-assets.js"></script>
 <script src="../scripts/utils/load-google-maps-api.js"></script>
@@ -70,7 +70,8 @@ googleLoaded.done(function(google) {
 
 controller.init({
     countryCode: 'DK',
-    dataUrl: '../test/assets/ds.components.store-locator.stores.json'
+    dataUrl: 'https://api.dansksupermarked.dk/v1/stores/foetex?per_page=100',
+    token: 'your-secret-api-token'
 });
 
 controller.zoomTo('DK');
